@@ -6,19 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'currency-converter';
-  sourceCurrency: number = 0;
-  targetCurrency: number = 0;
-  amount: number = 0;
-  conversionResult: string = '';
-  resultMessage: string = '';
+  title = 'angularapp';
+  opt1: number = 0; // Initialize to some default value
+  opt2: number = 0; // Initialize to some default value
+  amt: number = 0; // Initialize to some default value
+  res: number = 0; // Initialize to some default value
+  result: string = ''; // Initialize to an empty string
 
-  performConversion(): void {
-    if (this.sourceCurrency !== 0 && this.targetCurrency !== 0) {
-      this.conversionResult = (Math.round((this.targetCurrency / this.sourceCurrency) * this.amount)).toFixed(2);
-      this.resultMessage = `Converted amount: ${this.conversionResult}`;
+  exchange(a: number, b: number, amt: number): string {
+    if (a !== 0 && b !== 0) {
+      this.result = (Math.round((b / a) * amt)).toFixed(2);
     } else {
-      this.resultMessage = 'Please select valid source and target currencies.';
+      this.result = '';
     }
+    return this.result;
   }
 }
